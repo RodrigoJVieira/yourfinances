@@ -47,7 +47,9 @@
         <section id="transaction">
             <h2 class="sr-only">Transações</h2>
 
-            <a href="#" class="button new">+ Nova Transações</a>
+            <a href="#"
+            onclick="Modal.open()"
+             class="button new">+ Nova Transações</a>
 
             <table id="data-table">
                 <thead>
@@ -81,9 +83,82 @@
         </section>
     </main>
 
+    <div class="modal-overlay">
+        <div class="modal">
+                <div id="form">
+                    <h2>Nova Transação</h2>
+                    <form action="">
+                        <div class="input-group">
+                            <label 
+                                class="sr-only" 
+                                for="description">Descrição</label>
+                            <input 
+                                type="text" 
+                                id="description"
+                                name="description"
+                                placeholder="Descrição"
+                            />
+                        </div>
+
+                        <div class="input-group">
+                            <label 
+                                class="sr-only" 
+                                for="amount">Valor</label>
+                            <input 
+                                type="number" 
+                                step="0.01"
+                                id="amount"
+                                name="amount"
+                                placeholder="0,00"
+                            />
+                            <small>Use o sinal - (negativo) para desperas e , (vírgula) para casas decimais</small>
+                        </div>
+
+                        <div class="input-group">
+                            <label 
+                                class="sr-only" 
+                                for="date">Data</label>
+                            <input 
+                                type="date" 
+                                id="date"
+                                name="date"
+                            />
+                        </div>
+
+                        <div class="input-group actions">
+                            <a 
+                            onclick="Modal.close()"
+                            href="#"
+                             class="button cancel">Cancelar</a>
+                            <button>Salvar</button>
+                        </div>
+                    </form>
+                </div>
+        </div>
+    </div>
+
+
+
     <footer>
-        <p>your.finance$</p>
-    </footer>
+        <p>your.finance$</p></footer>
+
+        <script>
+            const Modal = {
+                open(){
+                    document
+                    .querySelector('.modal-overlay')
+                    .classList
+                    .add('active')
+                },
+                close(){
+                    document
+                    .querySelector('.modal-overlay')
+                    .classList
+                    .remove('active')
+                    
+                }
+            }
+        </script>
 
 </body>
 

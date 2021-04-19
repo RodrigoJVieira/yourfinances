@@ -1,6 +1,9 @@
 /* Global ======================== */
 :root {
     --dark-blue: #363f5f;
+    --green: #49aa26;
+    --light-green: #3dd705;
+    --red: #e92929;
 }
 
 * {
@@ -48,17 +51,54 @@ h2 {
 /* Links & Buttons ======================== */
 
 a {
-    color: #49aa26;
+    color: var(--green);
     text-decoration: none;
 }
 
 a:hover {
-    color: #3dd705;
+    color: var(--light-green);
+}
+
+button {
+    width: 100%;
+    height: 50px;
+
+    border: none;
+    color: white;
+    background-color: var(--green);
+
+    padding: 0;
+
+    border-radius: 0.25rem;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--light-green);
 }
 
 .button.new {
     display: inline-block;
     margin-bottom: 0.8rem;
+}
+
+.button.cancel {
+    color: var(--red);
+    border: 2x var(--red) solid;
+    border-radius: 0.25rem;
+
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0.6;
+}
+
+.button.cancel:hover {
+    opacity: 1;
 }
 
 /* Header ======================== */
@@ -111,19 +151,20 @@ header {
 }
 
 .card.tortal {
-    background: #49aa26;
+    background: var(--green)6;
     color: white;
 }
 
 /* Table ======================== */
-#data-table {
+#transaction {
     display: block;
-
+    width: 100%;
+    overflow-x: auto;
+}
+#data-table {
     width: 100%;
     border-spacing: 0 0.5rem;
     color: #969cb3;
-
-    overflow-x: auto;
 }
 
 table thead tr th:first-child,
@@ -168,7 +209,80 @@ td.expense {
     color: #e92929;
 }
 
+/* Modal ======================== */
+.modal-overlay {
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.7);
+
+    position: fixed;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    z-index: 999;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background: #f0f2f5;
+    padding: 2.4rem;
+    width: 90%;
+    max-width: 500px;
+
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Form ======================== */
+#form {
+    max-width: 500px;
+}
+
+#form h2 {
+    margin-top: 0;
+}
+
+input {
+    border: none;
+    border-radius: 0.2rem;
+
+    padding: 0.8;
+    width: 100%;
+}
+
+.input-group {
+    margin-top: 0.8rem;
+}
+
+.input-group small{
+    opacity: 0.4;
+}
+
+.input-group.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.input-group.actions .button,
+.input-group.actions button {
+    width: 48%;
+}
+
+
 /* Footer ======================== */
+
 footer {
     text-align: center;
     padding: 4rem 0 2rem;
